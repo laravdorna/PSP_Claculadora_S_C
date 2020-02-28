@@ -7,27 +7,26 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /**
  *
  * @author Lara
  */
 public class Calculadora extends javax.swing.JFrame {
 
-    String num1, num2, resultado, operaciones, ip;
-    int puerto;
+    String num1, num2, resultado, operaciones;
+    String ip; //="localhost";
+    int puerto;//= 6666;
 
     public Calculadora() {
         initComponents();
         ip = "localhost";
-        puerto = 6666;
+       puerto = 6666;
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        entityManager1 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory(null).createEntityManager();
         jPanel1 = new javax.swing.JPanel();
         panel1 = new java.awt.Panel();
         Dos = new javax.swing.JButton();
@@ -339,7 +338,6 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel2.setFocusable(false);
 
         Cambiar.setText("Cambiar");
-        Cambiar.setActionCommand("Cambiar");
         Cambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CambiarActionPerformed(evt);
@@ -574,10 +572,8 @@ public class Calculadora extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         //crear un hilo que inicie la calculadora 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Calculadora().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Calculadora().setVisible(true);
         });
     }
 
@@ -603,7 +599,6 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton Sumar;
     private javax.swing.JButton Tres;
     private javax.swing.JButton Uno;
-    private javax.persistence.EntityManager entityManager1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

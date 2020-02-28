@@ -76,7 +76,7 @@ public class Servidor extends Thread {
         try {
             serverSocket = new ServerSocket();
             System.out.println("Realizando el bind");
-            int puerto = Integer.parseInt(JOptionPane.showInputDialog("Introducir puerto servidor:"));
+            int puerto =6666; //Integer.parseInt(JOptionPane.showInputDialog("Introducir puerto servidor:"));
             InetSocketAddress addr = new InetSocketAddress("localhost", puerto);
             serverSocket.bind(addr);
         } catch (IOException e) {
@@ -87,7 +87,7 @@ public class Servidor extends Thread {
         while (serverSocket != null) {
             try {
                 Socket newSocket = serverSocket.accept();
-                System.out.println("Conexión recibida");
+                System.out.println("Conexión establecida");
 
                 Servidor hilo = new Servidor(newSocket);
                 hilo.start();
